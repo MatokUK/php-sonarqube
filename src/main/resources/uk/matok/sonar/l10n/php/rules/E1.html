@@ -1,0 +1,24 @@
+<p>
+    Logical expression is always <code>true</code> / <code>false</code>.
+</p>
+
+<p>
+    Expression is poorly written or is altered because of debugging. Expression contains <code>true</code> (expression implicitly converted to true)
+    with logical or <code>||</code> are always <code>true</code> and expressions contains <code>false</code> (expression implicitly converted to false)
+    with logical and <code>&&</code> are always <code>false</code>.
+</p>
+
+<h2>Noncompliant Code Example</h2>
+<pre>
+    if (1 || $isDevEnvironment) { // Noncompliant
+    }
+
+    if (true || $isDevEnvironment) { // Noncompliant
+    }
+
+    if (0 && $recurrentPayment) { // Noncompliant
+    }
+
+    if (false && $isDevEnvironment) { // Noncompliant
+    }
+</pre>

@@ -1,0 +1,14 @@
+<p>
+    Construct should not contains <code>return</code> statement.
+</p>
+
+
+<h2>Noncompliant Code Example</h2>
+<pre>
+    public function __construct()
+    {
+        /* ...code... */
+
+        return $expression; // Noncompliant
+    }
+</pre>

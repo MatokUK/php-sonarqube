@@ -1,0 +1,26 @@
+<p>
+<ul>
+    <li><code>sleep</code></li>
+    <li><code>time_sleep_until</code></li>
+    <li><code>time_nanosleep</code></li>
+    <li><code>usleep</code></li>
+</ul>
+    is sometimes used in a mistaken attempt to prevent Denial of Service (DoS) attacks by throttling response rate. But because it
+    ties up a thread, each request takes longer to serve that it otherwise would, making the application <em>more</em> vulnerable to DoS attacks, rather
+    than less.</p>
+
+<h2>Noncompliant Code Example</h2>
+<pre>
+if (is_bad_ip($requester)) {
+  sleep(5);  // Noncompliant
+}
+
+time_sleep_until(time() + 10);  // Noncompliant
+</pre>
+<h2>See</h2>
+<ul>
+    <li> OWASP Top 10 2017 Category A6 - Security Misconfiguration </li>
+</ul>
+
+<h2>Note</h2>
+<p>You are allowed to use <code>sleep</code>, <code>time_sleep_until</code>, <code>time_nanosleep</code>, <code>usleep</code> in <code>*Command.php</code> files</p>
